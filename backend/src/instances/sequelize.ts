@@ -1,5 +1,5 @@
 import { Sequelize, Dialect } from "sequelize";
-import { development } from "../../config/config.json";
+import { development } from "../db/config/config.json";
 
 const db = development.database;
 const username = development.username;
