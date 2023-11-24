@@ -1,7 +1,8 @@
-import { publicProcedure, router } from "../trpc";
+import { router } from "../trpc";
+import { signupController } from "../controllers/auth/authController";
 
 export const appRouter = router({
-  greeting: publicProcedure.query(() => "hello tRPC v10!"),
+  signup: signupController,
 });
 
 export type AppRouter = typeof appRouter;

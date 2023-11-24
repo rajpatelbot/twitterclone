@@ -3,6 +3,7 @@ import cors from "cors";
 import express, { Application } from "express";
 import { sequelize } from "./instances/sequelize";
 import { appRouter } from "./routes";
+import { logger } from "./utils/logger";
 
 const app: Application = express();
 const port = 8000;
@@ -17,7 +18,7 @@ app.listen(port, () => {
 
 try {
   sequelize.authenticate();
-  console.log("Connection has been established successfully.");
+  logger.info("Connection has been established successfully.");
 } catch (error) {
-  console.error("Unable to connect to the database:", error);
+  logger.error("Unable to connect to the database:", error);
 }
