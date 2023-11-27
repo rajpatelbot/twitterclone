@@ -8,4 +8,8 @@ const host = development.host;
 const dialect: Dialect = development.dialect as Dialect;
 const port = development.port;
 
-export const sequelize = new Sequelize(db, username, password, { host, dialect, port });
+export const sequelize = new Sequelize(db, username, password, {
+  host,
+  dialect,
+  port,
+});

@@ -3,5 +3,5 @@ export interface IMailerPayload {
   to: string;
   subject: string;
   html: string;
-  responseMessage: string;
+  RESPONSE_MESSAGE: string;
 }

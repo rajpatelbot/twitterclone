@@ -10,7 +10,12 @@ const port = 8000;
 
 app.use(cors());
 
-app.use("/auth", trpcExpress.createExpressMiddleware({ router: appRouter }));
+app.use(
+  "/auth",
+  trpcExpress.createExpressMiddleware({
+    router: appRouter,
+  }),
+);
 
 app.listen(port, () => {
   console.log(`App is listening on port ${port}`);

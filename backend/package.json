@@ -4,7 +4,7 @@
   "description": "",
   "main": "_app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write .",
     "dev:server": "npx nodemon src/_app.ts",
     "build:server": "npm run build && node build/app.js",
     "migrate:up": "sequelize-cli db:migrate",
@@ -42,6 +42,7 @@
     "@types/node": "^20.9.0",
     "@types/nodemailer": "^6.4.14",
     "@types/sequelize": "^4.28.17",
+    "prettier": "^3.1.0",
     "sequelize-cli": "^6.6.2",
     "typescript": "^5.2.2"
   }

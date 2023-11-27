@@ -1,9 +1,11 @@
 import { IMailerPayload } from "./../../index.d";
-import { responseMessage } from "./../constant/index";
+import { RESPONSE_MESSAGE } from "./../constant/index";
 import nodemailer from "nodemailer";
 import { logger } from "./logger";
 
-async function mailSender(mailerPayload: nodemailer.SendMailOptions & IMailerPayload) {
+async function mailSender(
+  mailerPayload: nodemailer.SendMailOptions & IMailerPayload,
+) {
   return new Promise((resolve, reject) => {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -17,10 +19,10 @@ async function mailSender(mailerPayload: nodemailer.SendMailOptions & IMailerPay
     transporter.sendMail(mailerPayload, (error) => {
       if (error) {
         logger.error(error);
-        return reject(responseMessage.EMAIL_FAILED);
+        return reject(RESPONSE_MESSAGE.EMAIL_FAILED);
       } else {
-        logger.error(`Email sent: ${mailerPayload.responseMessage}`);
-        return resolve(mailerPayload.responseMessage);
+        logger.error(`Email sent: ${mailerPayload.RESPONSE_MESSAGE}`);
+        return resolve(mailerPayload.RESPONSE_MESSAGE);
       }
     });
   });

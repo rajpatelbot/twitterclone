@@ -2,7 +2,11 @@ import jwt, { SignOptions } from "jsonwebtoken";
 import { JWT_EXPIRES_IN } from "../constant";
 
 interface JWT {
-  sign(payload: string | object | Buffer, secretOrPrivateKey: jwt.Secret, options?: SignOptions): string;
+  sign(
+    payload: string | object | Buffer,
+    secretOrPrivateKey: jwt.Secret,
+    options?: SignOptions,
+  ): string;
 }
 
 export function generateJWT(userId: number, email: string): string {
