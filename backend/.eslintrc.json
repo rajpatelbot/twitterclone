@@ -1,0 +1,66 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"],
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "operator-assignment": "error",
+    "logical-assignment-operators": ["error", "always", { "enforceForIfStatements": true }],
+    "no-console": "error",
+    "no-underscore-dangle": 0,
+    "no-param-reassign": 0,
+    "func-names": 0,
+    "new-cap": 0,
+    "max-len": ["error", 140],
+    "comma-dangle": 0,
+    "padded-blocks": 0,
+    "no-nested-ternary": "off",
+    "no-plusplus": 0,
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "prefer-const": "error",
+    "no-duplicate-imports": "error",
+    "arrow-spacing": "error",
+    "no-confusing-arrow": "error",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 2,
+        "maxEOF": 1
+      }
+    ],
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowTernary": true
+      }
+    ],
+    "no-useless-concat": "error",
+    "semi-spacing": "error",
+    "semi": "error",
+    "space-before-blocks": "error",
+    "space-in-parens": "error",
+    "space-infix-ops": "error",
+    "space-unary-ops": "error",
+    "keyword-spacing": "error",
+    "eqeqeq": "error",
+    "require-await": "error",
+    "object-shorthand": "error",
+    "no-else-return": "error",
+    "no-useless-computed-key": "error",
+    "no-constant-condition": "error",
+    "@typescript-eslint/no-magic-numbers": [
+      "error",
+      {
+        "ignoreArrayIndexes": true,
+        "ignoreEnums": true,
+        "ignoreNumericLiteralTypes": true
+      }
+    ],
+    "no-unreachable": "error"
+  }
+}

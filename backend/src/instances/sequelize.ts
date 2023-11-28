@@ -1,9 +1,9 @@
-import { Sequelize, Dialect } from "sequelize";
-import { development } from "../db/config/config.json";
+import { Sequelize, Dialect } from 'sequelize';
+import { development } from '../db/config/config.json';
 
 const db = development.database;
 const username = development.username;
-const password = development.password ?? "";
+const password = development.password ?? '';
 const host = development.host;
 const dialect: Dialect = development.dialect as Dialect;
 const port = development.port;

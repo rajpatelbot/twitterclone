@@ -1,18 +1,16 @@
-import { IMailerPayload } from "./../../index.d";
-import { RESPONSE_MESSAGE } from "./../constant/index";
-import nodemailer from "nodemailer";
-import { logger } from "./logger";
+import { IMailerPayload } from './../../index.d';
+import { RESPONSE_MESSAGE } from './../constant/index';
+import nodemailer from 'nodemailer';
+import { logger } from './logger';
 
-async function mailSender(
-  mailerPayload: nodemailer.SendMailOptions & IMailerPayload,
-) {
+async function mailSender(mailerPayload: nodemailer.SendMailOptions & IMailerPayload) {
   return new Promise((resolve, reject) => {
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      host: 'smtp.gmail.com',
       secure: true,
       auth: {
-        user: "rajpatel158g@gmail.com",
-        pass: "vwhrwwvqzgljevli",
+        user: 'rajpatel158g@gmail.com',
+        pass: 'vwhrwwvqzgljevli',
       },
     });
 

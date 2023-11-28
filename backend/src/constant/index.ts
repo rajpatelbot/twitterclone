@@ -7,17 +7,17 @@ export const RESPONSE_CODE = {
 } as const;
 
 export const RESPONSE_MESSAGE = {
-  OK: "OK",
-  CREATED: "Created",
-  BAD_REQUEST: "Bad Request",
-  UNAUTHORIZED: "Unauthorized",
-  INTERNAL_SERVER_ERROR: "Internal Server Error",
-  SOMETHING_WENT_WRONG: "Something went wrong!",
+  OK: 'OK',
+  CREATED: 'Created',
+  BAD_REQUEST: 'Bad Request',
+  UNAUTHORIZED: 'Unauthorized',
+  INTERNAL_SERVER_ERROR: 'Internal Server Error',
+  SOMETHING_WENT_WRONG: 'Something went wrong!',
 
-  EMAIL_SUCCESS: "Email sent successfully",
-  EMAIL_FAILED: "Unable to send email",
-  INVALID_OTP: "Invalid OTP",
-  VERIFY: "OTP verified successfully",
+  EMAIL_SUCCESS: 'Email sent successfully',
+  EMAIL_FAILED: 'Unable to send email',
+  INVALID_OTP: 'Invalid OTP',
+  VERIFY: 'OTP verified successfully',
 } as const;
 
-export const JWT_EXPIRES_IN = "1d" as const;
+export const JWT_EXPIRES_IN = '1d' as const;

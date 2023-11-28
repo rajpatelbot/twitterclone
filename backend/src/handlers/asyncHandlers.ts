@@ -1,5 +1,5 @@
-import { RESPONSE_CODE, RESPONSE_MESSAGE } from "../constant";
-import { logger } from "../utils/logger";
+import { RESPONSE_CODE, RESPONSE_MESSAGE } from '../constant';
+import { logger } from '../utils/logger';
 
 type HandlerFunction<T> = () => Promise<T>;
 
