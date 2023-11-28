@@ -16,3 +16,8 @@ export const emailOTPSchema = authSchema.pick({
   email: true,
   otp: true,
 });
+
+export const loginSchema = authSchema.pick({
+  email: true,
+  password: true,
+});

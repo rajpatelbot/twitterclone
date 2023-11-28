@@ -14,6 +14,9 @@ export const RESPONSE_MESSAGE = {
   INTERNAL_SERVER_ERROR: 'Internal Server Error',
   SOMETHING_WENT_WRONG: 'Something went wrong!',
 
+  LOGIN_SUCCESS: 'Login successfully',
+  INVALID_CREDENTIALS: 'Invalid credentials',
+
   EMAIL_SUCCESS: 'Email sent successfully',
   EMAIL_FAILED: 'Unable to send email',
   INVALID_OTP: 'Invalid OTP',

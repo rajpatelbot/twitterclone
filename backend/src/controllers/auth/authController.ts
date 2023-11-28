@@ -2,11 +2,11 @@ import bcrypt from 'bcrypt';
 import { Op } from 'sequelize';
 import User from '../../models/user.model';
 import { publicProcedure } from '../../trpc';
-import { authSchema, emailOTPSchema } from './authSchema';
 import { asyncHandler } from '../../handlers/asyncHandlers';
 import { generateOTP } from '../../utils/generateOTP';
 import { generateJWT } from '../../utils/generateJWT';
 import { RESPONSE_CODE, RESPONSE_MESSAGE } from '../../constant';
+import { authSchema, emailOTPSchema, loginSchema } from './authSchema';
 import { sendOTPVarificationEmail } from '../../emails/email-manager';
 import { IAuth } from './types';
 
@@ -107,6 +107,42 @@ export const verifyOTPController = publicProcedure.input(emailOTPSchema).mutatio
       statusCode: RESPONSE_CODE.OK,
       success: true,
       message: RESPONSE_MESSAGE.VERIFY,
+    };
+  });
+});
+
+export const loginController = publicProcedure.input(loginSchema).mutation(async ({ input }) => {
+  return asyncHandler(async () => {
+    const existedUser = (await User.findOne({ where: { email: input.email } })) as unknown as IAuth;
+    if (!existedUser) {
+      return {
+        statusCode: RESPONSE_CODE.BAD_REQUEST,
+        success: false,
+        message: RESPONSE_MESSAGE.INVALID_CREDENTIALS,
+      };
+    }
+
+    const isPasswordMatched = await bcrypt.compare(input.password, existedUser.password);
+    if (!isPasswordMatched) {
+      return {
+        statusCode: RESPONSE_CODE.BAD_REQUEST,
+        success: false,
+        message: RESPONSE_MESSAGE.INVALID_CREDENTIALS,
+      };
+    }
+
+    const sanitizedUser = await User.findByPk(existedUser.user_id, {
+      attributes: { exclude: ['password', 'otp', 'otp_expiry'] },
+    });
+
+    const token = generateJWT(existedUser.user_id, existedUser.email);
+    const resUser = { user: sanitizedUser, token };
+
+    return {
+      statusCode: RESPONSE_CODE.OK,
+      success: true,
+      message: RESPONSE_MESSAGE.LOGIN_SUCCESS,
+      data: resUser,
     };
   });
 });
